@@ -35,12 +35,12 @@
             "properties": {
                 "niubiheader.dateFormat": {
                     "type": "string",
-                    "default": "yyyy-MM",
+                    "default": "yyyy-MM-dd",
                     "description": "your default date format"
                 },
                 "niubiheader.tpl": {
                     "type": "string",
-                    "default": "/*\r\n * @file @{description}\r\n * @author: {author}\r\n * @date: {updateTime}\r\n */\r\n",
+                    "default": "/*\r\n * @file {description}\r\n * @author: {author}\r\n * @date: {updateTime}\r\n */\r\n",
                     "description": "By default, common template. Do not modify it!!!!!"
                 },
                 "niubiheader.data.author": {
@@ -50,7 +50,7 @@
                 },
                 "niubiheader.data.description": {
                     "type": "string",
-                    "default": "i am a file",
+                    "default": "i am a file description",
                     "description": "your default file description"
                 }
             }
