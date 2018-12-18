@@ -3,7 +3,7 @@
     "publisher": "limefe",
     "displayName": "niubiheader",
     "description": "niubi file header",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "engines": {
         "vscode": "^1.30.0"
     },
