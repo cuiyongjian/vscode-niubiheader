@@ -3,7 +3,7 @@
     "publisher": "niubiheader",
     "displayName": "niubiheader",
     "description": "niubi file header",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "engines": {
         "vscode": "^1.30.0"
     },
