@@ -1,0 +1,69 @@
+{
+    "name": "niubiheader",
+    "displayName": "niubiheader",
+    "description": "niubi file header",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.niubiheader"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.niubiheader",
+                "title": "niubiheader"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.niubiheader",
+                "key": "ctrl+shift+i",
+                "mac": "cmd+shift+i",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "File header Configuration",
+            "properties": {
+                "niubiheader.dateFormat": {
+                    "type": "string",
+                    "default": "yyyy-MM",
+                    "description": "your default date format"
+                },
+                "niubiheader.tpl": {
+                    "type": "string",
+                    "default": "/*\r\n * @file @{description}\r\n * @author: {author}\r\n * @date: {updateTime}\r\n */\r\n",
+                    "description": "By default, common template. Do not modify it!!!!!"
+                },
+                "niubiheader.data.author": {
+                    "type": "string",
+                    "default": "lao niubi",
+                    "description": "your default file author name"
+                },
+                "niubiheader.data.description": {
+                    "type": "string",
+                    "default": "i am a file",
+                    "description": "your default file description"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^3.1.4",
+        "vscode": "^1.1.25",
+        "eslint": "^4.11.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    }
+}
