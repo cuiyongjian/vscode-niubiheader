@@ -2,6 +2,8 @@
     "name": "niubiheader",
     "publisher": "limefe",
     "displayName": "niubiheader",
+	"keywords": ["file header", "format", "comment"],
+	"category": ["Snippets","Formatters", "Other", "Extension Packs", "Language Packs"],
     "description": "niubi file header",
     "version": "3.0.4",
     "engines": {
