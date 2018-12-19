@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.0.6]
+### Changed
+- 增加了项目的 categorys字段，方便 Microsoft market 检索
+
+## [3.0.5]
+
+### Changed
+-增加了项目关键字，方便搜索
+
 ## [3.0.4]
 
 ### Added
