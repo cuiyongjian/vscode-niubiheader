@@ -11,7 +11,7 @@
         "Other"
     ],
     "description": "niubi file header",
-    "version": "3.0.6",
+    "version": "3.0.7",
     "engines": {
         "vscode": "^1.30.0"
     },
