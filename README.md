@@ -1,6 +1,6 @@
 <p>
     <a href="https://marketplace.visualstudio.com/items?itemName=limefe.niubiheader">
-      <img alt="logo" width="36" height="36" src="./icon.png" alt="umall">
+      <img alt="logo" width="36" height="36" src="icon.png" alt="umall">
     </a>
 </p>
 <h1 align="center">
