@@ -1,4 +1,14 @@
-![](./icon.png)
+<p>
+    <a href="https://marketplace.visualstudio.com/items?itemName=limefe.niubiheader">
+      <img alt="logo" width="36" height="36" src="./icon.png" alt="umall">
+    </a>
+</p>
+<h1 align="center">
+    niubiheader
+</h1>
+
+<p align="center" style="margin: 30px 0 35px;">一个给文档添加文件注释的vscode插件, 并且支持自定义模板和updateTime变量</p>
+<p align="center" style="margin: 30px 0 35px;">Add notes to the file header, and supports custom template and automatic update file modification time.</p>
 
 # niubi-file-header
 
