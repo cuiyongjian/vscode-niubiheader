@@ -65,9 +65,9 @@ vscode中搜索 niubiheader
     "niubiheader.dateFormat": "yyyy-MM-dd hh:mm",
 ```
 
-## 自定义变量举例
+## Sample
 
-比如你希望你的注释中加一个 @company 公司字段。
+自定义变量举例，比如你希望你的注释中加一个 @company 公司字段。
 
 那么这个场景下，你需要修改下 tpm 模板:
 
@@ -94,6 +94,6 @@ vscode中搜索 niubiheader
 
 * 模板支持一些过滤器，可以自由控制模板中变量的输出格式
 
-## 感谢
+## Thanks
 
 感谢您的使用
