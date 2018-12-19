@@ -1,17 +1,32 @@
+![](./icon.png)
+
 # niubi-file-header README
 
-给文件顶部添加文件注释的vscode扩展插件。
-
-啥也不说了老铁，看名字就知道，就是牛逼
+牛逼header，一个给文档添加文件级别注释的vscode插件
 
 ## Features
 
-需要什么功能你尽管提需求，老哥我立马给你实现
+* 通过快捷键在文件顶部插入自己喜欢的文档注释
 
+* 需要什么功能你尽管提需求，老哥我立马给你实现
 
-## usage
+## Install
 
-安装后，使用 `cmd/ctrl + shift + i` 来向文件中插入文档注释
+[应用市场](https://marketplace.visualstudio.com/items?itemName=limefe.niubiheader#overview) 点击 Install
+
+或
+
+```bash
+ext install limefe.niubiheader
+```
+
+或
+
+vscode中搜索 niubiheader
+
+## Usage
+
+安装后，使用 `cmd/ctrl + shift + i` 或命令面板输入 `niubiheader` 来向文件中插入文档注释
 
 默认的插入的注释是这个样子的:
 
