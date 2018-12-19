@@ -1,6 +1,6 @@
 ![](./icon.png)
 
-# niubi-file-header README
+# niubi-file-header
 
 牛逼header，一个给文档添加文件级别注释的vscode插件
 
