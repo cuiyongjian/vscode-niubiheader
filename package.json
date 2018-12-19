@@ -8,20 +8,13 @@
         "comment"
     ],
     "categories": [
-        "Snippets",
-        "Formatters",
-        "Other",
-        "Extension Packs",
-        "Language Packs"
+        "Other"
     ],
     "description": "niubi file header",
-    "version": "3.0.5",
+    "version": "3.0.6",
     "engines": {
         "vscode": "^1.30.0"
     },
-    "categories": [
-        "Other"
-    ],
     "icon": "icon.png",
     "activationEvents": [
         "onCommand:extension.niubiheader"
