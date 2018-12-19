@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.0.7]
+### Changed
+- 增加 todo readme
+
 ## [3.0.6]
 ### Changed
 - 增加了项目的 categorys字段，方便 Microsoft market 检索
