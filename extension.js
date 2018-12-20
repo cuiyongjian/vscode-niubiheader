@@ -10,8 +10,9 @@ function activate(context) {
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "niubiheader" is now active!');
 
-    var niubiConfig = getCurrentNiubiConfig()
+    var niubiConfig = getCurrentNiubiConfig() // 用户设置
     console.log('niubiconfig', niubiConfig)
+    var timeStamp = null
 
     vscode.workspace.onDidChangeConfiguration(function (config) {
         console.log('config changed', config)
@@ -25,9 +26,9 @@ function activate(context) {
         var editor = vscode.editor || vscode.window.activeTextEditor;
                                     
         /*
-        * @Author: huangyuan
+        * @Author: sheldoncui
         * @Date: 2017-02-28 17:51:35
-        * @Last Modified by:   huangyuan413026@163.com
+        * @Last Modified by:   sheldoncui@gmail.com
         * @Last Modified time: 2017-02-28 17:51:35
         * @description: 在当前行插入,而非在首行插入
         */
@@ -52,6 +53,7 @@ function activate(context) {
     context.subscriptions.push(disposable);
 
     vscode.workspace.onDidSaveTextDocument(function (file) {
+        console.log('触发了保存')
         setTimeout(function () {
             try {
                 var f = file;
@@ -63,11 +65,14 @@ function activate(context) {
                 var lastTimeText = null;
                 var diff = -1;
                 var lineCount = document.lineCount;
+                console.log('document.lineCount', lineCount)
+                var isNeedUpdateTime = false
                 var comment = false;
                 for (var i = 0; i < lineCount; i++) {
                     var linetAt = document.lineAt(i);
                     
                     var line = linetAt.text;
+                    console.log('行内容', line, i)
                     line = line.trim();
                     if (line.startsWith("/*") && !line.endsWith("*/")) {//是否以 /* 开头
                         console.log('在这里')
@@ -83,21 +88,39 @@ function activate(context) {
                             authorRange = range;
                             authorText=' * @author: ' + niubiConfig.data.author;
                         } else if (line.indexOf('@date') > -1) {//最后修改时间
+                            var dateFormat = niubiConfig.dateFormat || "yyyy-MM-dd hh:mm:ss"
                             var time = line.replace('@date:', '').replace('*', '');
                             var oldTime = new Date(time);
                             var curTime = new Date();
                             var diff = (curTime - oldTime) / 1000;
+                            
+                            if (/s+/.test(dateFormat)) {
+                                // 有秒，则更新时间的规则为 超过20秒
+                                isNeedUpdateTime = diff > 20
+                            }
+                            else if (/m+/.test(dateFormat) && !/s+/.test(dateFormat)) {
+                                // 最小到分，则按照60秒纬度算超时
+                                isNeedUpdateTime = diff > 60
+                            }
+                            else if (/h+/.test(dateFormat) && !/s+/.test(dateFormat) && !/s+/.test(dateFormat)) {
+                                // 最小到小时，则按照1小时纬度 
+                                isNeedUpdateTime = diff > 60 * 60
+                            }
+                            else if(!/h+/.test(dateFormat) && !/s+/.test(dateFormat) && !/s+/.test(dateFormat)) {
+                                isNeedUpdateTime = diff && diff > 60*60*24
+                            }
+
                             console.log('最后修改时间的diff', diff)
                             lastTimeRange = range;
                             console.log('timerange', lastTimeRange)
-                            lastTimeText=' * @date: ' + curTime.format(niubiConfig.dateFormat || "yyyy-MM-dd hh:mm:ss");
+                            lastTimeText=' * @date: ' + curTime.format(dateFormat);
                         }
                         if (!comment) {
                             break;//结束
                         }
                     }
                 }
-                if ((authorRange != null) && (lastTimeRange != null) && (diff > 20)) {
+                if ((authorRange != null) && (lastTimeRange != null) && (isNeedUpdateTime)) {
                     setTimeout(function () {
                         editor.edit(function (edit) {
                             edit.replace(authorRange, authorText);
